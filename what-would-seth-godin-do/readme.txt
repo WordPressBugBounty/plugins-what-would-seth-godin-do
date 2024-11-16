@@ -3,8 +3,8 @@ Contributors: richardkmiller
 Donate link: http://richardkmiller.com/
 Tags: marketing, segmentation, cookies, Seth Godin, GPL
 Requires at least: 3.1
-Tested up to: 6.0
-Stable tag: 2.1.1
+Tested up to: 6.7
+Stable tag: 2.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
