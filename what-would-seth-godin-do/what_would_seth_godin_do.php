@@ -4,12 +4,12 @@
 Plugin Name: What Would Seth Godin Do
 Plugin URI: https://richardkmiller.com/wordpress-plugin-what-would-seth-godin-do
 Description: Displays a custom welcome message to new visitors and another to return visitors.
-Version: 2.1.2
+Version: 2.1.3
 Author: Richard K Miller
 Author URI: https://richardkmiller.com/
 Text Domain: what-would-seth-godin-do
 
-Copyright (c) 2006-2024 Richard K Miller
+Copyright (c) 2006-2025 Richard K Miller
 Released under the GNU General Public License (GPL)
 http://www.gnu.org/licenses/gpl.txt
 */
@@ -45,12 +45,13 @@ function wwsgd_options_subpanel() {
 
     if ( isset($_POST['wwsgd_save_settings']) ) {
         check_admin_referer('wwsgd_update_options');
-        $wwsgd_settings['new_visitor_message'] = wp_kses_post($_POST['wwsgd_new_visitor_message']);
-        $wwsgd_settings['return_visitor_message'] = wp_kses_post($_POST['wwsgd_return_visitor_message']);
-        $wwsgd_settings['message_location'] = wp_kses_post($_POST['wwsgd_message_location']);
-        $wwsgd_settings['include_pages'] = wp_kses_post($_POST['wwsgd_message_include_pages']);
-        $wwsgd_settings['repetition'] = wp_kses_post($_POST['wwsgd_repetition']);
-        $wwsgd_settings['wwsgd_exclude_ids'] = wp_kses_post($_POST['wwsgd_exclude_ids']);
+        $wwsgd_settings['new_visitor_message'] = wp_kses_post(wp_unslash($_POST['wwsgd_new_visitor_message']));
+        $wwsgd_settings['return_visitor_message'] = wp_kses_post(wp_unslash($_POST['wwsgd_return_visitor_message']));
+        $wwsgd_settings['message_location'] = sanitize_key($_POST['wwsgd_message_location']);
+        $wwsgd_settings['include_pages'] = sanitize_key($_POST['wwsgd_message_include_pages']);
+        $wwsgd_settings['repetition'] = absint($_POST['wwsgd_repetition']);
+        $wwsgd_settings['wwsgd_exclude_ids'] = implode(',', array_map('absint', preg_split('/\s*,\s*/', wp_unslash($_POST['wwsgd_exclude_ids']))));
+        // $wwsgd_settings['wwsgd_exclude_ids'] = implode(',', array_map('absint', explode(', ', "287,1175"))));
         update_option('wwsgd_settings', $wwsgd_settings);
     }
     if (isset($_POST['wwsgd_reset_settings']) ) {
