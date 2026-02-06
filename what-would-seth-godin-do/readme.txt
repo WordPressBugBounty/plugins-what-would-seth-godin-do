@@ -1,16 +1,18 @@
 === What Would Seth Godin Do ===
 Contributors: richardkmiller
 Donate link: http://richardkmiller.com/
-Tags: marketing, segmentation, cookies, Seth Godin, GPL
+Tags: adopt-me, marketing, segmentation, cookies
 Requires at least: 3.1
-Tested up to: 6.7.1
-Stable tag: 2.1.3
+Tested up to: 6.9
+Stable tag: 2.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Displays a custom welcome message to new visitors and another to return visitors.
 
 == Description ==
+
+*This plugin is available for adoption. The ideal adopter is a fan of Seth Godin and will honor his name. Prior, public history in the WordPress community is helpful. Contact me at richardkmiller at gmail.*
 
 Seth Godin advocates using [cookies](http://en.wikipedia.org/wiki/HTTP_cookie) to distinguish between new and returning visitors to your site:
 

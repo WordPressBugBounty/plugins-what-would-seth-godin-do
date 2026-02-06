@@ -4,12 +4,12 @@
 Plugin Name: What Would Seth Godin Do
 Plugin URI: https://richardkmiller.com/wordpress-plugin-what-would-seth-godin-do
 Description: Displays a custom welcome message to new visitors and another to return visitors.
-Version: 2.1.3
+Version: 2.1.8
 Author: Richard K Miller
 Author URI: https://richardkmiller.com/
 Text Domain: what-would-seth-godin-do
 
-Copyright (c) 2006-2025 Richard K Miller
+Copyright (c) 2006-2026 Richard K Miller
 Released under the GNU General Public License (GPL)
 http://www.gnu.org/licenses/gpl.txt
 */
@@ -19,6 +19,8 @@ $wwsgd_settings = wwsgd_initialize_and_get_settings();
 add_action('admin_menu', 'wwsgd_options_page');
 add_action('wp_footer', 'wwsgd_js');
 add_filter('the_content', 'wwsgd_filter_content');
+add_action('admin_notices', 'wwsgd_adoption_notice');
+add_action('wp_ajax_wwsgd_dismiss_adoption_notice', 'wwsgd_dismiss_adoption_notice');
 
 function wwsgd_initialize_and_get_settings() {
     $defaults = array(
@@ -63,6 +65,11 @@ function wwsgd_options_subpanel() {
     <div class="wrap">
         <div id="icon-options-general" class="icon32"><br /></div>
         <h2>What Would Seth Godin Do</h2>
+
+        <div class="notice notice-info">
+            <p><strong>This plugin is available for adoption.</strong> The ideal adopter is a fan of Seth Godin and will honor his name. Prior, public history in the WordPress community is helpful. Contact richardkmiller at gmail.</p>
+        </div>
+
         <p>"One opportunity that's underused is the idea of using cookies to treat returning visitors differently than newbies…." - <a href="https://seths.blog/2006/08/in_the_middle_s/">Seth Godin, August 17, 2006</a></p>
 
         <form method="post">
@@ -151,6 +158,27 @@ function wwsgd_options_subpanel() {
 
     </div>
     <?php
+}
+
+function wwsgd_adoption_notice() {
+    if ( get_user_meta( get_current_user_id(), 'wwsgd_adoption_notice_dismissed', true ) ) {
+        return;
+    }
+    ?>
+    <div class="notice notice-info is-dismissible wwsgd-adoption-notice">
+        <p><strong>What Would Seth Godin Do is available for adoption.</strong> The ideal adopter is a fan of Seth Godin and will honor his name. Prior, public history in the WordPress community is helpful. Contact richardkmiller at gmail.</p>
+    </div>
+    <script>
+    jQuery(document).on('click', '.wwsgd-adoption-notice .notice-dismiss', function() {
+        jQuery.post(ajaxurl, {action: 'wwsgd_dismiss_adoption_notice'});
+    });
+    </script>
+    <?php
+}
+
+function wwsgd_dismiss_adoption_notice() {
+    update_user_meta( get_current_user_id(), 'wwsgd_adoption_notice_dismissed', true );
+    wp_die();
 }
 
 function wwsgd_filter_content($content = '') {
