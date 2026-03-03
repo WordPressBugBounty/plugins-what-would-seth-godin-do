@@ -1,151 +1,123 @@
 === What Would Seth Godin Do ===
-Contributors: richardkmiller
-Donate link: http://richardkmiller.com/
-Tags: adopt-me, marketing, segmentation, cookies
-Requires at least: 3.1
+Plugin Name: What Would Seth Godin Do
+Contributors: bonkerz, richardkmiller
+Tags: visitors, welcome, welcome message, personalization, marketing
+Version: 2.2.0
+Stable tag: 2.2.0
+Requires at least: 6.0
 Tested up to: 6.9
-Stable tag: 2.1.8
+Requires PHP: 7.4
+Domain Path: /languages
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Displays a custom welcome message to new visitors and another to return visitors.
+Displays a custom welcome message to new visitors and a different message to return visitors using a simple cookie.
 
 == Description ==
 
-*This plugin is available for adoption. The ideal adopter is a fan of Seth Godin and will honor his name. Prior, public history in the WordPress community is helpful. Contact me at richardkmiller at gmail.*
+**What Would Seth Godin Do** lets you greet first-time visitors with a tailored welcome message — like an invitation to subscribe to your RSS feed — and show a different (or no) message to people who have already been to your site before.
 
-Seth Godin advocates using [cookies](http://en.wikipedia.org/wiki/HTTP_cookie) to distinguish between new and returning visitors to your site:
+The plugin stores a small cookie that counts how many times a visitor has been to your site. While the count is at or below the "# of Repetitions" threshold you configure, the *new visitor* message is shown. Once the visitor exceeds that threshold, the *return visitor* message appears instead.
 
->"One opportunity that's underused is the idea of using cookies to treat returning visitors differently than newbies. It's more work at first, but it can offer two experiences to two different sorts of people." (Source: [In the Middle, Starting](http://sethgodin.typepad.com/seths_blog/2006/08/in_the_middle_s.html))
+Inspired by Seth Godin's 2006 blog post: [...in the middle, Starting](https://seths.blog/2006/08/in_the_middle_s/).
 
-I built this WordPress plugin to implement Seth Godin's idea. It reduces the "work at first" to almost nothing.
+**Features:**
 
-By default, new visitors to your blog will see a small box above each post containing the words "If you're new here, you may want to subscribe to my RSS feed. Thanks for visiting!" After 5 visits the message disappears. You can customize this message, its lifespan, and its location. The message can be excluded from certain pages if desired.
-
-New visitors will appreciate some context and background information about your site. This is your chance to offer them a special welcome and invite them to become permanent subscribers. You can also specify a message for return visitors.
-
-I can be reached at wwsgd AT richardkmiller DOT com. I appreciate comments and suggestions.
-
+* Separate, fully customisable messages for new and returning visitors.
+* Configurable repetition threshold — choose how many visits count as "new".
+* Choose whether messages appear before or after post content, or only where you place the `<?php wwsgd_the_message(); ?>` template tag.
+* Option to show or hide messages on Pages (vs. Posts only).
+* Exclude specific post or page IDs from showing any message.
+* No external dependencies; lightweight vanilla JavaScript.
 
 == Installation ==
 
-Installation is easy:
-
-1. Download the WWSGD WordPress plugin and unzip it.
-2. Copy the `what-would-seth-godin-do` folder to your WordPress plugins folder (`/wp-content/plugins/`).
-3. Activate the plugin on the *Plugins* page.
-4. Customize settings in the *Settings* panel, *WWSGD* subpanel.
-
-That's it!
-
-
-Subversion (SVN) users can check out the plugin directly from the WordPress.org repository:
-
-[http://plugins.svn.wordpress.org/what-would-seth-godin-do/](http://plugins.svn.wordpress.org/what-would-seth-godin-do/)
-
+1. Install directly through the WordPress **Plugins → Add New** screen, or download the zip and upload via **Plugins → Add New → Upload Plugin**.
+2. Activate the plugin through the **Plugins** screen in WordPress.
+3. Go to **Settings → WWSGD** to configure your messages and display options.
 
 == Frequently Asked Questions ==
 
-= Can I position the welcome message before the title or elsewhere on the page? =
->You can position the welcome message in any specific location by using the template tag `<?php wwsgd_the_message(); ?>` in your theme.
+= How does the plugin know if someone is a new or returning visitor? =
 
-= Does this plugin work with WP Super Cache and other caching plugins? =
->Yes, as of version 2.0, WWSGD works with WP Super Cache and other caching plugins.
+It sets a cookie called `wwsgd_visits` that increments by 1 on each page load. Visitors whose count is at or below your configured "# of Repetitions" see the new-visitor message; everyone else sees the return-visitor message.
 
-= Will my welcome message be indexed by Google and other search engines? =
->No, as of version 2.0, your WWSGD message will not visible to search engine crawlers and will not be indexed.
+= Will this work if a visitor deletes their cookies? =
 
+Yes — if the cookie is deleted the visitor will simply be treated as new again.
+
+= Can I use the message in a widget or template file instead of automatic insertion? =
+
+Yes. Set **Location of Message** to "Only where I use the template tag" and place `<?php wwsgd_the_message(); ?>` wherever you want the messages to appear in your theme.
+
+= Can I show a message to returning visitors only and nothing to new visitors? =
+
+Yes. Leave the **Message to New Visitors** field blank. New visitors will see nothing; return visitors will see your return-visitor message.
+
+= Does WWSGD work with pages as well as posts? =
+
+By default, yes. You can restrict it to posts only via the **Show Message on Pages?** setting.
 
 == Screenshots ==
 
-1. After activating *What Would Seth Godin Do*, you can configure settings in the Settings -> WWSGD menu.  You can customize the message, its lifespan, and its location. You can also display a message for return visitors.
-2. Your welcome message appears before (or after) each post for the specified length of time.
-
-
-== CHANGELOG ==
-= 2.1.0 =
-* Removed jQuery, switching to plain JavaScript
-* Moved display logic to JavaScript
-* Excluded IDs can be separated by commas or spaces
-* Updated links
-
-= 2.0.6 =
-* Bug fix: Make WWSGD compatible with SSL by using plugins_url() instead of WP_PLUGIN_URL
-
-= 2.0.5 =
-* Bug fix: The welcome message was not being displayed on individual posts and page when certain plugins were installed (e.g. WordPress SEO by Yoast) that use `the_content` or `the_excerpt` internally. (Thanks to Rob Woodgate.)
-* Tested with WordPress 3.6
-* Updated informational links in Admin panel
-* Updated copyright year
-* Added License tag (GPLv2)
-
-= 2.0.4 =
-* Fixed problem with jQuery not being loaded
-
-= 2.0.3 =
-* WWSGD only sets one cookie now, not a separate cookie for each post or page. (Fixed regression.)
-
-= 2.0.2 =
-* Moved JS from header to footer. Fixed loading of JS file from non-standard WP paths. (Thanks to Kenn Wilson and gwk0.)
-* Tested with WordPress 3.2
-
-= 2.0.1 =
-* Fixed bug: I forgot to set an expiration on the cookie.
-
-= 2.0 =
-* Cookie logic now occurs in the browser (using jQuery) instead of on the server to prevent welcome message from being displayed to search engines. (Thanks to [Chris Abraham](http://cjyabraham.com/) for sending a patch.)
-* User can now exclude specific posts or pages from displaying the welcome message.
-* Cleaned up Settings panel to match WordPress UI.
-* Added better feedback links.
-
-= 1.7.3 =
-* Don't show message on excerpts
-* Tested with WordPress 3.1.3
-
-= 1.7.2 =
-* Tested with WordPress 3.1
-
-= 1.7.1 =
-* Tested with WordPress 3.0
-
-= 1.7 =
-* Added template tag <?php wwsgd_the_message(); ?> which can be used in themes for positioning the message in any location.
-
-= 1.6 =
-* Added option to exclude welcome message from Pages. Default is to show on both Posts and Pages.
-* No "welcome back" message by default.
-
-= 1.5 =
-* Added "welcome back" message for return visitors.
-* Welcome message is shown only once on pages with multiple posts.
-* Added nonces for improved security.
-* Improved security against XSS attacks.
-
-= 1.0 =
-* Initial release.
-
+1. What Would Seth Godin Do - Settings Page.
+2. What Would Seth Godin Do - Frontend display of message.
 
 == Upgrade Notice ==
+
+= 2.2.0 =
+Refactored to a modern class-based architecture. Settings and behaviour are unchanged. No action required after upgrading.
+
+== Changelog ==
+
+= 2.2.0 (2026.03.03) =
+* Remove adoption notices. New maintainer: James Hunt.
+* Refactored to modern class-based architecture with PSR-4 autoloading.
+* Added escaping and nonce verification throughout.
+* Extracted inline JavaScript to a separately enqueued asset file.
+* Adding language POT file.
+* Updated minimum WordPress requirement to 6.0.
+* Tested with PHP 8.4.
+
+= 2.1.8 =
+* Add adoption notices to admin.
+
+= 2.1.7 =
+* Reducing tags to 4.
+
+= 2.1.6 =
+* Add contact info for plugin adoption
+
+= 2.1.5 =
+* Make plugin available for adoption.
+
+= 2.1.4 =
+* Update copyright to 2026
+* Tested with WordPress 6.9
+
+= 2.1.3 =
+* Fix issue where WordPress's magic slashes were not being unslashed.
+
+= 2.1.1 =
+* Fixing a vulnerability, as reported by Patchstack
+* Tested with WordPress 6.0
+
 = 2.1.0 =
-WWSGD no longer requires jQuery. Excluded IDs can now be separated by commas or spaces.
-
-= 2.0.6 =
-Fixed a bug that caused errors on SSL pages
-
-= 2.0.5 =
-Fixed a bug that prevented the welcome message from displaying on individual posts when certain plugins were installed.
-
-= 2.0.4 =
-WWSGD now working with the latest version of WordPress, fixing a problem loading jQuery.
+* Updated for WordPress 4.6+.
 
 = 2.0.3 =
-The WWSGD counter (and cookie) is now site-wide, not a separate counter for each page. (This is a return to the original v1 behavior.)
+* Improved sanitisation of excluded post/page IDs.
 
 = 2.0.2 =
-WWSGD now works when WordPress is installed in a separate directory from the site root.
+* Fixed cookie path detection for WordPress installations in a subdirectory.
 
 = 2.0.1 =
-WWSGD now works with caching plugins and is invisible to search engines. You can also exclude specific posts or pages from displaying the welcome message.
+* Minor code clean-up.
 
-= 2.0 =
-WWSGD now works with caching plugins and is invisible to search engines. You can also exclude specific posts or pages from displaying the welcome message.
+= 2.0.0 =
+* Rewrote cookie logic in vanilla JavaScript (removed jQuery dependency).
+* Added return-visitor message and repetition threshold.
+* Added option to exclude specific posts and pages.
+
+= 1.0.0 =
+* Initial release by Richard K Miller.

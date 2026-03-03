@@ -1,0 +1,163 @@
+# Copyright (C) 2026 James Hunt
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: What Would Seth Godin Do 2.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/what-would-seth-godin-do/\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-03-03T14:42:26+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: what-would-seth-godin-do\n"
+
+#. Plugin Name of the plugin
+#: what-would-seth-godin-do.php
+#: includes/class-wwsgd-admin.php:32
+#: includes/class-wwsgd-admin.php:62
+msgid "What Would Seth Godin Do"
+msgstr ""
+
+#. Description of the plugin
+#: what-would-seth-godin-do.php
+msgid "Displays a custom welcome message to new visitors and another to return visitors."
+msgstr ""
+
+#. Author of the plugin
+#: what-would-seth-godin-do.php
+msgid "James Hunt"
+msgstr ""
+
+#. Author URI of the plugin
+#: what-would-seth-godin-do.php
+msgid "https://www.thetwopercent.co.uk"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:33
+msgid "WWSGD"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:72
+msgid "Message to New Visitors"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:80
+msgid "# of Repetitions"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:84
+msgid "Show the above message the first"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:86
+msgid "times the user visits your blog. Then display the message below."
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:92
+msgid "Message to Return Visitors"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:95
+msgid "Welcome back!"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:100
+msgid "Location of Message"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:105
+msgid "Before Post"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:110
+msgid "After Post"
+msgstr ""
+
+#. translators: %s: PHP template tag code
+#: includes/class-wwsgd-admin.php:118
+#, php-format
+msgid "Only where I use the %s template tag"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:127
+msgid "Show Message on Pages?"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:132
+msgid "On Posts and Pages"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:137
+msgid "On Posts Only"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:143
+msgid "Posts/Pages to Exclude"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:146
+msgid "Post or page IDs separated by spaces or commas"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:151
+msgid "Save Settings"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:155
+#: includes/class-wwsgd-admin.php:159
+msgid "Reset Settings"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:163
+msgid "I ♥ WWSGD"
+msgstr ""
+
+#. translators: %s: link to plugin's WordPress.org page
+#: includes/class-wwsgd-admin.php:168
+#, php-format
+msgid "Please %s on WordPress.org."
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:169
+msgid "rate this plugin"
+msgstr ""
+
+#. translators: %s: link to Acumen Fund donation page
+#: includes/class-wwsgd-admin.php:177
+#, php-format
+msgid "If you love this plugin, please make a small donation to the %s, a charity with which Seth Godin works. In the \"Referred by\" field, enter \"Seth Godin\"."
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:178
+msgid "Acumen Fund"
+msgstr ""
+
+#. translators: %s: link to WordPress.org support forum
+#: includes/class-wwsgd-admin.php:186
+#, php-format
+msgid "For questions, bug reports, or other feedback about this plugin, please use the %s."
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:187
+msgid "WordPress.org support forum"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:193
+msgid "Additional Reading"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:194
+msgid "You can ask, \"First time here?\""
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:194
+#: includes/class-wwsgd-admin.php:195
+msgid "by Seth Godin"
+msgstr ""
+
+#: includes/class-wwsgd-admin.php:195
+msgid "Where do we begin?"
+msgstr ""
