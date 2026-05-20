@@ -10,13 +10,13 @@
  * @wordpress-plugin
  * Plugin Name:       What Would Seth Godin Do
  * Description:       Displays a custom welcome message to new visitors and another to return visitors.
- * Version:           2.2.0
+ * Version:           2.2.1
  * Author:            James Hunt
  * Author URI:        https://www.thetwopercent.co.uk
  * Text Domain:       what-would-seth-godin-do
  * Requires PHP:      7.4
  * Requires at least: 6.0
- * Tested up to:      6.9
+ * Tested up to:      7.0
  * License:           GPL-2.0-or-later
  *
  * Copyright (c) 2006-2026 Richard K Miller
@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'WWSGD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'WWSGD_PLUGIN_VERSION', '2.2.0' );
+define( 'WWSGD_PLUGIN_VERSION', '2.2.1' );
 
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-wwsgd-plugin.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-wwsgd-settings.php';

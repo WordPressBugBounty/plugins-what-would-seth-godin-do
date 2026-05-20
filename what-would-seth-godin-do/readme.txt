@@ -2,10 +2,10 @@
 Plugin Name: What Would Seth Godin Do
 Contributors: bonkerz, richardkmiller
 Tags: visitors, welcome, welcome message, personalization, marketing
-Version: 2.2.0
-Stable tag: 2.2.0
+Version: 2.2.1
+Stable tag: 2.2.1
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
 Domain Path: /languages
 License: GPLv2 or later
@@ -35,6 +35,10 @@ Inspired by Seth Godin's 2006 blog post: [...in the middle, Starting](https://se
 1. Install directly through the WordPress **Plugins → Add New** screen, or download the zip and upload via **Plugins → Add New → Upload Plugin**.
 2. Activate the plugin through the **Plugins** screen in WordPress.
 3. Go to **Settings → WWSGD** to configure your messages and display options.
+
+== Support & Feature Requests ==
+
+I am actively working on What Would Seth Godin Do. If you have a support issue or have feedback or feature requests, I would love to hear it in the [Support Forum](https://wordpress.org/support/plugin/what-would-seth-godin-do/).
 
 == Frequently Asked Questions ==
 
@@ -69,6 +73,9 @@ By default, yes. You can restrict it to posts only via the **Show Message on Pag
 Refactored to a modern class-based architecture. Settings and behaviour are unchanged. No action required after upgrading.
 
 == Changelog ==
+
+= 2.2.1 (2026.05.20) =
+* Compatibility with WordPress 7.0.
 
 = 2.2.0 (2026.03.03) =
 * Remove adoption notices. New maintainer: James Hunt.
